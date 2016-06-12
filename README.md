@@ -1,9 +1,11 @@
-
+This is a demo project for my blog post about Electron and Angular 1.x.
 
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/GeorgeAnagnostopoulos/electron-angular-demo.git
+
 # Go into the repository
-cd electron-quick-start
+cd electron-angular-demo
+
 # Install dependencies and run the app
 npm install && npm start
 
