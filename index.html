@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="electronApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>Electron - Angular 1.x Application</title>
+    <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body ng-controller="mainCtrl">
+    
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4"><img src="./assets/jph.png"/></div>
+          <div class="col-md-8"><h4>{{ msg }}</h4></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">     
+      <div><ul ng-repeat="user in users"><li>{{ user.name }}</li></ul></div>
+    </div>
+
+    <script>
+      require('./node_modules/angular/angular.js')
+      require('./js/index.js')
+    </script>
+  </body>
+</html>

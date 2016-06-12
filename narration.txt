@@ -1,0 +1,74 @@
+It all started with the fabulus Electron documentation.
+Electron is a runtime for creating applications in Javascript originally meant to run in web servers.
+In this sense you can view it as a Node.js variant. Also, Electron app's main process can access
+Node.js APIs for whatever reason you may need to.
+
+Off to the code now. I started with the electron-quick-start. To get and run this quickstart you need to
+have git and node.js installed in your machine. Assuming that all the prerequisites are met you use
+the command:
+
+npm install electron-prebuilt --global 
+
+to install the Electron runtime and be able to use the "electron" command below. Then use the command:
+
+git clone https://github.com/electron/electron-quick-start.git electron-test
+
+to get a copy of electron-quick-start in a directory named electron-test in your hard disk.
+Then type
+
+cd electron-test
+
+and
+
+npm install && npm start
+
+to observe a running Electron application.
+
+The web page displayed is in the file index.html where the corresponding Javascript file
+named renderer.js is also used. I removed it and named mine index.js residing in the js directory I created.
+Also, the Chromium Devtools tab is displayed. Super helpful!
+
+Enter angular and Bootstrap!
+
+I typed:
+
+npm install bower --save-dev
+
+to install Bower and 
+
+bower init to initialize it. I will use Bower to install Bootstrap.
+
+Then I used npm to install Angular and Bower to install Bootstrap
+
+npm install angular@1.5.6 --save
+
+bower install bootstrap --save
+
+Everything now is set. I created an angular module named "electronApp" and a controller named "mainCtrl":
+
+'use strict';
+
+angular.module('electronApp', [])
+.controller('mainCtrl', ['$scope', '$http', ($scope, $http) => {
+
+    $scope.msg = 'JSONPlaceHolder User List';
+    $scope.users = [];
+
+    const   base_url = 'http://jsonplaceholder.typicode.com';
+    $http.get(base_url + '/users').success((data) => {        
+        $scope.users = data;
+    })
+    .error((error) => {
+        console.log(error);
+    });
+}]);
+
+I used the JSONPlaceHolder to get some data and display it in my web page. I changed the index.html file 
+a bit to incorporate Bootstrap and Angular boilerplate code and voila! The Users object form JSONPlaceHolder!
+
+I the well-presented Electron documentation you can find information on how to package the application for various OSes.
+Check it out in http://electron.atom.io/docs/.
+
+This process was very straightforward and I'm looking forward to include some tests and use it in production.
+
+The resulting demo project is here.
